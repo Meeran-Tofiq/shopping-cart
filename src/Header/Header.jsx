@@ -1,12 +1,20 @@
-export default function Header() {
+let categories = [
+	"Men's Clothing",
+	"Women's Clothing",
+	"Jewelry",
+	"Electronics",
+];
+
+export default function Header({ category }) {
 	return (
 		<header>
 			<h1>FAKKE STORE</h1>
 			<ul>
-				<li key="Men's Clothing">Men's Clothing</li>
-				<li key="Women's Clothing">Women's Clothing</li>
-				<li key="Jewelry">Jewelry</li>
-				<li key="Electronics">Electronics</li>
+				{categories.map((cat) => (
+					<li key={cat} className="">
+						{cat}
+					</li>
+				))}
 			</ul>
 		</header>
 	);

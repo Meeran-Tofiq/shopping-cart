@@ -25,7 +25,7 @@ const useProductsURL = (category) => {
 };
 
 export default function Products({ category }) {
-	const [products, error, loading] = useProductsURL(category);
+	const { products, error, loading } = useProductsURL(category);
 
 	if (loading) {
 		return (

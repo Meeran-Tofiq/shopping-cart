@@ -7,7 +7,7 @@ export default function Homepage() {
 			<div>
 				<h1>FAKKE STORE</h1>
 				<h3>
-					<Link to="store/jewelry">Store Page</Link>
+					<Link to="store/jewelery">Store Page</Link>
 				</h3>
 			</div>
 		</main>

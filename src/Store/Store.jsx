@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 export default function Store() {
 	let { category } = useParams();
-	console.log(category);
 
 	return (
 		<>

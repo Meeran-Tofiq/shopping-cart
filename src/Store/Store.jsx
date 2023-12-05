@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Products from "../Products/Products";
 
 export default function Store({ category }) {
 	return (

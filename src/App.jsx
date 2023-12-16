@@ -1,12 +1,22 @@
 import { useState } from "react";
 import Header from "./Header/Header";
-import Homepage from "./Homepage/Homepage";
+import { Outlet } from "react-router-dom";
 
 function App() {
+	const [cartItems, setCartItems] = useState({});
+
+	function addItemToCart(item) {
+		setCartItems({ ...cartItems, item });
+	}
+
 	return (
 		<>
 			<Header></Header>
-			<Homepage></Homepage>
+			<Outlet
+				cartItems={cartItems}
+				setCartItems={setCartItems}
+				addItemToCart={addItemToCart}
+			/>
 		</>
 	);
 }

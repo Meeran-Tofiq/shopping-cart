@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 
 export default function ProductPage() {
@@ -19,7 +18,6 @@ export default function ProductPage() {
 
 	return (
 		<>
-			<Header />
 			<main>
 				<img src={product.image} />
 				<h2>{product.title}</h2>

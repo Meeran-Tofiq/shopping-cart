@@ -31,7 +31,7 @@ export default function Products({ category }) {
 		return (
 			<ul>
 				{[1, 2, 3].map((i) => (
-					<Card loading={loading} id={i}></Card>
+					<Card loading={loading} id={i} key={i}></Card>
 				))}
 			</ul>
 		);
@@ -52,7 +52,12 @@ export default function Products({ category }) {
 	return (
 		<ul>
 			{products.map((product) => (
-				<Card loading={loading} id={product.id} product={product}></Card>
+				<Card
+					loading={loading}
+					id={product.id}
+					product={product}
+					key={product.id}
+				></Card>
 			))}
 		</ul>
 	);

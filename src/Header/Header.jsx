@@ -20,6 +20,9 @@ export default function Header({ category }) {
 					</li>
 				))}
 			</ul>
+			<Link to="cart">
+				<span>CART</span>
+			</Link>
 		</header>
 	);
 }

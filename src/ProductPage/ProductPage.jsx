@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function ProductPage() {
 	let { state } = useLocation();
 	let product = state.product;
 	let [quantity, setQuantity] = useState(0);
+
+	const [cartItems, setCartItems] = useOutletContext();
 
 	function increasequantity() {
 		setQuantity(quantity + 1);
@@ -14,6 +16,21 @@ export default function ProductPage() {
 	function decreasequantity() {
 		if (quantity === 0) return;
 		setQuantity(quantity - 1);
+	}
+
+	function addItemToCart(item) {
+		if (isEmpty(item)) {
+			setCartItems({ ...cartItems, item });
+			return;
+		}
+		let obj = Object.values(cartItems).find(
+			(elem) => elem.title === item.title
+		);
+		if (obj) {
+			increaseQuantityOfItem(obj, item.quantity);
+		} else {
+			setCartItems({ ...cartItems, item });
+		}
 	}
 
 	return (
@@ -29,7 +46,9 @@ export default function ProductPage() {
 					<button onClick={() => increasequantity()}>+</button>
 					<button onClick={() => decreasequantity()}>-</button>
 					<Link to=".." relative="path">
-						<button>Add to Cart</button>
+						<button onClick={() => addItemToCart({ ...product, quantity })}>
+							Add to Cart
+						</button>
 					</Link>
 				</div>
 			</main>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Homepage() {
 	return (
-		<main>
+		<main className={styles.homepage}>
 			<div>
 				<h1>FAKKE STORE</h1>
 				<h3>

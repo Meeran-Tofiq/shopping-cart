@@ -8,6 +8,7 @@ const useProductsURL = (category) => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		setLoading(true);
 		fetch("https://fakestoreapi.com/products/category/" + category, {
 			mode: "cors",
 		})
@@ -30,7 +31,7 @@ export default function Products({ category }) {
 
 	if (loading) {
 		return (
-			<ul>
+			<ul className={styles.ul}>
 				{[1, 2, 3].map((i) => (
 					<Card loading={loading} id={i} key={i}></Card>
 				))}

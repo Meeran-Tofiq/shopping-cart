@@ -22,3 +22,29 @@
 	margin-bottom: 1.5rem;
 	justify-self: center;
 }
+
+.loading {
+	height: 800px;
+}
+
+.loading::after {
+	content: "";
+	position: absolute;
+	height: 2px;
+	background: grey;
+	animation: progress 1.5s infinite ease-in-out;
+}
+
+@keyframes progress {
+	0% {
+		left: 0;
+		width: 0;
+	}
+	50% {
+		width: 100%;
+	}
+	100% {
+		right: 0;
+		width: 0;
+	}
+}

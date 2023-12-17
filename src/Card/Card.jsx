@@ -3,12 +3,7 @@ import styles from "./Card.module.css";
 
 export default function Card({ loading, id, product }) {
 	if (loading) {
-		return (
-			<li key={id}>
-				<div></div>
-				<h2>Loading...</h2>
-			</li>
-		);
+		return <li key={id} className={styles.loading}></li>;
 	}
 
 	return (
@@ -17,7 +12,7 @@ export default function Card({ loading, id, product }) {
 				<img src={product.image} />
 				<div>
 					<h2>{product.title}</h2>
-					<span>{product.price}</span>
+					<span>${product.price}</span>
 					<p>{product.description}</p>
 				</div>
 			</li>

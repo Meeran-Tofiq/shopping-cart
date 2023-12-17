@@ -17,26 +17,32 @@ export default function CartPage() {
 	}
 
 	const total = cartItems.reduce(
-		(acc, item) => acc + item.price * item.quantity,
+		(acc, product) => acc + product.price * product.quantity,
 		0
 	);
 
-	function increaseQuantityOfItem(item, amount = 1) {
-		let obj = cartItems.find((elem) => elem.title === item.title);
-		if (obj) {
-			obj.quantity += amount;
-		}
+	function increaseQuantityOfItem(product, amount = 1) {
+		setCartItems(
+			cartItems.map((p) => {
+				if (p.title === product.title) {
+					return { ...p, quantity: product.quantity + amount };
+				} else return p;
+			})
+		);
 	}
 
-	function decreaseQuantityOfItem(item, amount = 1) {
-		let obj = cartItems.find((elem) => elem.title === item.title);
-		if (obj) {
-			obj.quantity -= amount;
-		}
+	function decreaseQuantityOfItem(product, amount = 1) {
+		setCartItems(
+			cartItems.map((p) => {
+				if (p.title === product.title) {
+					return { ...p, quantity: product.quantity - amount };
+				} else return p;
+			})
+		);
 	}
 
-	function removeItemFromCart(item) {
-		setCartItems(cartItems.filter((i) => i !== item));
+	function removeItemFromCart(product) {
+		setCartItems(cartItems.filter((i) => i !== product));
 	}
 
 	return (
@@ -44,26 +50,29 @@ export default function CartPage() {
 			<>
 				<ul>
 					{cartItems.map((product) => (
-						<>
-							<li key={product.id}>
-								<div>
-									<img src={product.image} />
-									<h2>{product.title}</h2>
-									<span>{product.price}</span>
-								</div>
-								<div>
-									<span>{product.quantity}</span>
-									<span>{product.price * product.quantity}</span>
-									<button onClick={() => increaseQuantityOfItem(product)}>
-										+
-									</button>
-									<button onClick={() => decreaseQuantityOfItem(product)}>
-										-
-									</button>
-								</div>
-								<button onClick={removeItemFromCart}>TRASH</button>
-							</li>
-						</>
+						<li key={product.id}>
+							<div>
+								<img src={product.image} />
+								<h2>{product.title}</h2>
+								<span>{product.price}</span>
+							</div>
+							<div>
+								<span>{product.quantity}</span>
+								<span>{product.price * product.quantity}</span>
+								<button onClick={() => increaseQuantityOfItem(product)}>
+									+
+								</button>
+								<button
+									onClick={() => {
+										if (product.quantity > 1) decreaseQuantityOfItem(product);
+										else removeItemFromCart(product);
+									}}
+								>
+									-
+								</button>
+							</div>
+							<button onClick={() => removeItemFromCart(product)}>TRASH</button>
+						</li>
 					))}
 				</ul>
 				<span>TOTAL</span>

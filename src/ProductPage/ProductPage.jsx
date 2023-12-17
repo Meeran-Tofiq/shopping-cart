@@ -18,17 +18,16 @@ export default function ProductPage() {
 		setQuantity(quantity - 1);
 	}
 
-	function addItemToCart(item) {
-		if (cartItems.length < 1) {
-			setCartItems([...cartItems, item]);
-			return;
-		}
-		let obj = cartItems.find((elem) => elem.title === item.title);
-		if (obj) {
-			increaseQuantityOfItem(obj, item.quantity);
-		} else {
-			setCartItems([...cartItems, item]);
-		}
+	function addItemToCart(product) {
+		if (cartItems.find((p) => p.title === product.title)) {
+			setCartItems(
+				cartItems.map((p) => {
+					if (p.title === product.title) {
+						return { ...p, quantity: product.quantity + p.quantity };
+					} else return p;
+				})
+			);
+		} else setCartItems([...cartItems, product]);
 	}
 
 	return (

@@ -16,9 +16,13 @@ export default function Header() {
 		setActive(cat);
 	}
 
+	function handleNoActiveCategory() {
+		setActive("");
+	}
+
 	return (
 		<header className={styles.header}>
-			<h1>
+			<h1 onClick={handleNoActiveCategory}>
 				<Link to="/">FAKKE STORE</Link>
 			</h1>
 			<ul>
@@ -33,7 +37,7 @@ export default function Header() {
 				))}
 			</ul>
 			<Link to="cart" className={styles.link}>
-				<span>CART</span>
+				<span onClick={handleNoActiveCategory}>CART</span>
 			</Link>
 		</header>
 	);

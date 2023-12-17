@@ -4,4 +4,44 @@
 	background-size: cover;
 	background-position: center;
 	display: flex;
+	justify-content: center;
+}
+
+.homepage div {
+	position: absolute;
+	bottom: 3rem;
+	padding: 2rem;
+	width: 80%;
+
+	text-align: center;
+	background: linear-gradient(
+		to left,
+		rgba(0, 0, 0, 0.8),
+		black 50%,
+		rgba(0, 0, 0, 0.8)
+	);
+	color: white;
+}
+
+.homepage a {
+	color: unset;
+	text-decoration: unset;
+}
+
+.homepage a:hover {
+	color: unset;
+}
+
+.homepage div h3 {
+	text-decoration: underline 0.1rem rgba(255, 255, 255, 0);
+	text-underline-offset: 0.4rem;
+	transition: text-decoration-color 200ms ease-in-out;
+}
+
+.homepage div h3:hover {
+	text-decoration-color: white;
+}
+
+.homepage div h3.active {
+	text-decoration-color: white;
 }

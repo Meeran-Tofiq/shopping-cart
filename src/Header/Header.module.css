@@ -1,10 +1,12 @@
 .header {
 	display: flex;
 	gap: 2rem;
-	background-color: black;
-	color: white;
 	padding: 1rem 1.5rem;
 	align-items: center;
+
+	background-color: black;
+	color: white;
+	font-size: larger;
 }
 
 .header a {
@@ -33,10 +35,16 @@
 
 .header li {
 	all: unset;
+	text-decoration: underline 0.1rem rgba(255, 255, 255, 0);
+	text-underline-offset: 0.4rem;
+	transition: text-decoration-color 200ms ease-in-out;
+}
+
+.header li:hover {
+	text-decoration-color: white;
 }
 
 .header li.active {
-	text-decoration: underline;
 	text-decoration-color: white;
 }
 

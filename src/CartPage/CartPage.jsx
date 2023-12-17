@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 export default function CartPage() {
 	const [cartItems, setCartItems] = useOutletContext();
 
-	if (isEmpty(cartItems)) {
+	if (cartItems.length < 1) {
 		return (
 			<>
 				<div>
@@ -15,23 +15,21 @@ export default function CartPage() {
 			</>
 		);
 	}
-	const total = Object.values(cartItems).reduce(
-		(acc, item) => acc + item.price * item.quantity
+
+	const total = cartItems.reduce(
+		(acc, item) => acc + item.price * item.quantity,
+		0
 	);
 
 	function increaseQuantityOfItem(item, amount = 1) {
-		let obj = Object.values(cartItems).find(
-			(elem) => elem.title === item.title
-		);
+		let obj = cartItems.find((elem) => elem.title === item.title);
 		if (obj) {
 			obj.quantity += amount;
 		}
 	}
 
 	function decreaseQuantityOfItem(item, amount = 1) {
-		let obj = Object.values(cartItems).find(
-			(elem) => elem.title === item.title
-		);
+		let obj = cartItems.find((elem) => elem.title === item.title);
 		if (obj) {
 			obj.quantity -= amount;
 		}
@@ -43,45 +41,34 @@ export default function CartPage() {
 
 	return (
 		<main>
-			{
-				<>
-					<ul>
-						(
-						{cartItems.map((item) => (
-							<li>
+			<>
+				<ul>
+					{cartItems.map((product) => (
+						<>
+							<li key={product.id}>
 								<div>
-									<img src={item.image} />
-									<h2>{item.title}</h2>
-									<span>{item.price}</span>
+									<img src={product.image} />
+									<h2>{product.title}</h2>
+									<span>{product.price}</span>
 								</div>
 								<div>
-									<span>{item.price * item.quantity}</span>
-									<button onClick={() => increaseQuantityOfItem(item)}>
+									<span>{product.quantity}</span>
+									<span>{product.price * product.quantity}</span>
+									<button onClick={() => increaseQuantityOfItem(product)}>
 										+
 									</button>
-									<button onClick={() => decreaseQuantityOfItem(item)}>
+									<button onClick={() => decreaseQuantityOfItem(product)}>
 										-
 									</button>
 								</div>
 								<button onClick={removeItemFromCart}>TRASH</button>
 							</li>
-						))}
-						)
-					</ul>
-					<span>TOTAL</span>
-					<span>{total}</span>
-				</>
-			}
+						</>
+					))}
+				</ul>
+				<span>TOTAL</span>
+				<span>${total}</span>
+			</>
 		</main>
 	);
-}
-
-function isEmpty(obj) {
-	for (const prop in obj) {
-		if (Object.hasOwn(obj, prop)) {
-			return false;
-		}
-	}
-
-	return true;
 }

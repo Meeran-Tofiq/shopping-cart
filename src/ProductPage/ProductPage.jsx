@@ -9,27 +9,25 @@ export default function ProductPage() {
 
 	const [cartItems, setCartItems] = useOutletContext();
 
-	function increasequantity() {
+	function increaseQuantity() {
 		setQuantity(quantity + 1);
 	}
 
-	function decreasequantity() {
+	function decreaseQuantity() {
 		if (quantity === 0) return;
 		setQuantity(quantity - 1);
 	}
 
 	function addItemToCart(item) {
-		if (isEmpty(item)) {
-			setCartItems({ ...cartItems, item });
+		if (cartItems.length < 1) {
+			setCartItems([...cartItems, item]);
 			return;
 		}
-		let obj = Object.values(cartItems).find(
-			(elem) => elem.title === item.title
-		);
+		let obj = cartItems.find((elem) => elem.title === item.title);
 		if (obj) {
 			increaseQuantityOfItem(obj, item.quantity);
 		} else {
-			setCartItems({ ...cartItems, item });
+			setCartItems([...cartItems, item]);
 		}
 	}
 
@@ -43,8 +41,8 @@ export default function ProductPage() {
 
 				<div>
 					<span>{quantity}</span>
-					<button onClick={() => increasequantity()}>+</button>
-					<button onClick={() => decreasequantity()}>-</button>
+					<button onClick={() => increaseQuantity()}>+</button>
+					<button onClick={() => decreaseQuantity()}>-</button>
 					<Link to=".." relative="path">
 						<button onClick={() => addItemToCart({ ...product, quantity })}>
 							Add to Cart

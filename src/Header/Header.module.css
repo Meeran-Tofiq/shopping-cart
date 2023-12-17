@@ -1,0 +1,45 @@
+.header {
+	display: flex;
+	gap: 2rem;
+	background-color: black;
+	color: white;
+	padding: 1rem 1.5rem;
+	align-items: center;
+}
+
+.header a {
+	color: unset;
+	text-decoration: unset;
+}
+
+.header a:hover {
+	color: unset;
+}
+
+.header a:active {
+	filter: brightness(70%);
+}
+
+.header h1 {
+	color: yellow;
+	text-decoration-line: line-through overline;
+	text-decoration-color: yellow;
+}
+
+.header ul {
+	display: flex;
+	gap: 1rem;
+}
+
+.header li {
+	all: unset;
+}
+
+.header li.active {
+	text-decoration: underline;
+	text-decoration-color: white;
+}
+
+.link {
+	margin-left: auto;
+}

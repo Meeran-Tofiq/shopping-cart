@@ -1,0 +1,11 @@
+.ul {
+	list-style: none;
+	padding: 0;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 400px);
+	gap: 2rem;
+
+	width: 100%;
+	justify-content: center;
+}

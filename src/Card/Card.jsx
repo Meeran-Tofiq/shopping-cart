@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import styles from "./Card.module.css";
 
 export default function Card({ loading, id, product }) {
 	if (loading) {
@@ -11,12 +12,14 @@ export default function Card({ loading, id, product }) {
 	}
 
 	return (
-		<Link to="./purchase" state={{ product: product }}>
-			<li key={id}>
+		<Link to="./purchase" state={{ product: product }} className={styles.link}>
+			<li key={id} className={styles.card}>
 				<img src={product.image} />
-				<h2>{product.title}</h2>
-				<span>{product.price}</span>
-				<p>{product.description}</p>
+				<div>
+					<h2>{product.title}</h2>
+					<span>{product.price}</span>
+					<p>{product.description}</p>
+				</div>
 			</li>
 		</Link>
 	);

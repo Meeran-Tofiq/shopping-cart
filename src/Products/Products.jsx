@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import styles from "./Products.module.css";
 
 const useProductsURL = (category) => {
 	const [products, setProducts] = useState(null);
@@ -50,7 +51,7 @@ export default function Products({ category }) {
 	}
 
 	return (
-		<ul>
+		<ul className={styles.ul}>
 			{products.map((product) => (
 				<Card
 					loading={loading}

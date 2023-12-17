@@ -1,0 +1,24 @@
+.link {
+	width: inherit;
+	color: unset;
+	text-decoration: unset;
+}
+
+.card {
+	display: grid;
+	grid-template-rows: 400px auto;
+	height: 100%;
+
+	box-shadow: 0px 0px 2px black;
+	padding: 1rem;
+
+	justify-content: center;
+}
+
+.card img {
+	object-fit: contain;
+	height: calc(400px - 1rem - 1rem);
+	width: calc(300px - 1rem - 1rem);
+	margin-bottom: 1.5rem;
+	justify-self: center;
+}

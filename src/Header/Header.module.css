@@ -1,7 +1,7 @@
 .header {
 	display: flex;
-	gap: 2rem;
-	padding: 1rem 1.5rem;
+	gap: 1rem;
+	padding: 0.5rem 1rem;
 	align-items: center;
 
 	background-color: black;
@@ -26,6 +26,7 @@
 	color: yellow;
 	text-decoration-line: line-through overline;
 	text-decoration-color: yellow;
+	font-size: x-large;
 }
 
 .header ul {

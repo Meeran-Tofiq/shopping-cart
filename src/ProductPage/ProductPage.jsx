@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation, useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
+import styles from "./ProductPage.module.css";
 
 export default function ProductPage() {
 	let { state } = useLocation();
@@ -32,21 +33,25 @@ export default function ProductPage() {
 
 	return (
 		<>
-			<main>
-				<img src={product.image} />
-				<h2>{product.title}</h2>
-				<span>{product.price}</span>
-				<p>{product.description}</p>
+			<main className={styles.main}>
+				<div className={styles.product}>
+					<img src={product.image} />
+					<div className={styles.info}>
+						<h2>{product.title}</h2>
+						<span>${product.price}</span>
+						<p>{product.description}</p>
+					</div>
 
-				<div>
-					<span>{quantity}</span>
-					<button onClick={() => increaseQuantity()}>+</button>
-					<button onClick={() => decreaseQuantity()}>-</button>
-					<Link to=".." relative="path">
-						<button onClick={() => addItemToCart({ ...product, quantity })}>
-							Add to Cart
-						</button>
-					</Link>
+					<div className={styles.amount}>
+						<button onClick={() => decreaseQuantity()}>-</button>
+						<span>{quantity}</span>
+						<button onClick={() => increaseQuantity()}>+</button>
+						<Link to=".." relative="path">
+							<button onClick={() => addItemToCart({ ...product, quantity })}>
+								Add to Cart
+							</button>
+						</Link>
+					</div>
 				</div>
 			</main>
 		</>

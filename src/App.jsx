@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import Header from "./Header/Header";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 function App() {
 	const [cartItems, setCartItems] = useState([]);
-	const shouldOverflow = useParams();
+	const location = useLocation();
+	document.body.style.overflow = "hidden";
 
 	useEffect(() => {
-		if (!Object.keys(shouldOverflow).length) {
-			document.body.style.overflow = "hidden";
+		console.log(location.pathname);
+		if (location.pathname === "/") {
+			document.body.style.overflowY = "hidden";
 		} else {
-			document.body.style.overflow = "";
+			document.body.style.overflowY = "scroll";
 		}
-	}, [shouldOverflow]);
+	}, [location]);
 
 	return (
 		<div style={{ height: "100vh" }}>

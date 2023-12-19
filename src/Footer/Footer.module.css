@@ -1,0 +1,13 @@
+.footer {
+	height: 2rem;
+	background-color: black;
+	color: white;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer a {
+	color: yellow;
+}

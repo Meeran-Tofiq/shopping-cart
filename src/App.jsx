@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Header from "./Header/Header";
+import Header from "./Header/Header.jsx";
 import { Outlet, useLocation } from "react-router-dom";
+import Footer from "./Footer/Footer";
 
 function App() {
 	const [cartItems, setCartItems] = useState([]);
@@ -19,6 +20,7 @@ function App() {
 		<div style={{ height: "100vh" }}>
 			<Header></Header>
 			<Outlet context={[cartItems, setCartItems]} />
+			<Footer></Footer>
 		</div>
 	);
 }

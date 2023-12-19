@@ -82,6 +82,7 @@
 	background: none;
 	border: none;
 	height: 100%;
+	font-size: larger;
 }
 
 button:hover {

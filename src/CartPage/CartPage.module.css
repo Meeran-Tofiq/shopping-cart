@@ -14,3 +14,66 @@
 .empty h1 {
 	color: yellow;
 }
+
+.nonEmpty {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 2rem 0rem;
+	align-items: center;
+}
+
+.nonEmpty ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	width: 50%;
+}
+
+.nonEmpty li {
+	display: grid;
+	grid-template-columns: 4fr 1fr 1fr 1fr;
+	max-height: 8rem;
+	padding: 1rem;
+	border: 3px solid black;
+	border-left: none;
+	border-right: none;
+	align-items: center;
+}
+
+.imageDiv {
+	display: grid;
+	grid-template-columns: max-content auto;
+	grid-row: 1fr 1fr;
+	gap: 1rem;
+}
+
+.imageDiv img {
+	height: 5rem;
+	object-fit: fill;
+
+	grid-row: 1 / span 2;
+}
+
+.imageDiv h2 {
+	margin: 0;
+}
+
+.buttonDiv {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 0;
+}
+
+.buttonDiv button {
+	border: none;
+	background-color: black;
+	color: white;
+	flex-grow: 0;
+}
+
+.buttonDiv span {
+	border: 1px solid black;
+	flex: 1;
+}

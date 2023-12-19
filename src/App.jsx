@@ -8,7 +8,6 @@ function App() {
 	document.body.style.overflow = "hidden";
 
 	useEffect(() => {
-		console.log(location.pathname);
 		if (location.pathname === "/") {
 			document.body.style.overflowY = "hidden";
 		} else {

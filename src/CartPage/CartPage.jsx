@@ -45,19 +45,17 @@ export default function CartPage() {
 	}
 
 	return (
-		<main>
+		<main className={styles.nonEmpty}>
 			<ul>
 				{cartItems.map((product) => (
 					<li key={product.id}>
-						<div>
+						<div className={styles.imageDiv}>
 							<img src={product.image} />
 							<h2>{product.title}</h2>
-							<span>{product.price}</span>
+							<span>${product.price}</span>
 						</div>
-						<div>
-							<span>{product.quantity}</span>
-							<span>{product.price * product.quantity}</span>
-							<button onClick={() => increaseQuantityOfItem(product)}>+</button>
+						<span>{product.quantity}</span>
+						<div className={styles.buttonDiv}>
 							<button
 								onClick={() => {
 									if (product.quantity > 1) decreaseQuantityOfItem(product);
@@ -66,13 +64,17 @@ export default function CartPage() {
 							>
 								-
 							</button>
+							<span>${product.price * product.quantity}</span>
+							<button onClick={() => increaseQuantityOfItem(product)}>+</button>
 						</div>
 						<button onClick={() => removeItemFromCart(product)}>TRASH</button>
 					</li>
 				))}
 			</ul>
-			<span>TOTAL</span>
-			<span>${total}</span>
+			<div>
+				<span>TOTAL</span>
+				<span>${total}</span>
+			</div>
 		</main>
 	);
 }

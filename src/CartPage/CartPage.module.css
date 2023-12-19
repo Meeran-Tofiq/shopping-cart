@@ -29,6 +29,7 @@
 	flex-direction: column;
 	gap: 3rem;
 	width: 50%;
+	padding: 0;
 }
 
 .nonEmpty li {
@@ -87,4 +88,10 @@
 
 button:hover {
 	cursor: pointer;
+}
+
+.total {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
 }

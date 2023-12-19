@@ -76,7 +76,7 @@ export default function CartPage() {
 					</li>
 				))}
 			</ul>
-			<div>
+			<div className={styles.total}>
 				<span>TOTAL</span>
 				<span>${total}</span>
 			</div>

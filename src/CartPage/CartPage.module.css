@@ -77,3 +77,13 @@
 	border: 1px solid black;
 	flex: 1;
 }
+
+.trashButton {
+	background: none;
+	border: none;
+	height: 100%;
+}
+
+button:hover {
+	cursor: pointer;
+}

@@ -67,7 +67,12 @@ export default function CartPage() {
 							<span>${product.price * product.quantity}</span>
 							<button onClick={() => increaseQuantityOfItem(product)}>+</button>
 						</div>
-						<button onClick={() => removeItemFromCart(product)}>TRASH</button>
+						<button
+							onClick={() => removeItemFromCart(product)}
+							className={styles.trashButton}
+						>
+							<i className="fa-solid fa-trash"></i>
+						</button>
 					</li>
 				))}
 			</ul>

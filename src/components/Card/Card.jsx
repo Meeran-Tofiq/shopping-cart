@@ -10,7 +10,7 @@ export default function Card({ loading, id, product }) {
 		<Link to="./purchase" state={{ product: product }} className={styles.link}>
 			<li key={id} className={styles.card}>
 				<img src={product.image} />
-				<div>
+				<div data-testid="child-container">
 					<h2>{product.title}</h2>
 					<span>${product.price}</span>
 					<p>{product.description}</p>

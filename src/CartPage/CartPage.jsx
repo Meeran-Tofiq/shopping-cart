@@ -54,7 +54,9 @@ export default function CartPage() {
 							<h2>{product.title}</h2>
 							<span>${product.price}</span>
 						</div>
-						<span>{product.quantity}</span>
+						<span className={styles.totalOfProduct}>
+							${product.price * product.quantity}
+						</span>
 						<div className={styles.buttonDiv}>
 							<button
 								onClick={() => {
@@ -64,7 +66,7 @@ export default function CartPage() {
 							>
 								-
 							</button>
-							<span>${product.price * product.quantity}</span>
+							<span>{product.quantity}</span>
 							<button onClick={() => increaseQuantityOfItem(product)}>+</button>
 						</div>
 						<button

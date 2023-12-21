@@ -8,7 +8,7 @@
 
 	background-color: grey;
 	color: black;
-	height: 100%;
+	flex: 1;
 }
 
 .empty h1 {
@@ -21,6 +21,7 @@
 	gap: 1rem;
 	padding: 2rem 0rem;
 	align-items: center;
+	flex: 1;
 }
 
 .nonEmpty ul {
@@ -77,6 +78,11 @@
 .buttonDiv span {
 	border: 1px solid black;
 	flex: 1;
+	text-align: center;
+}
+
+.totalOfProduct {
+	text-align: center;
 }
 
 .trashButton {

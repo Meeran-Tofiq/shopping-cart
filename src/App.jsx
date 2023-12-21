@@ -17,11 +17,11 @@ function App() {
 	}, [location]);
 
 	return (
-		<div style={{ height: "100vh" }}>
+		<>
 			<Header></Header>
 			<Outlet context={[cartItems, setCartItems]} />
 			<Footer></Footer>
-		</div>
+		</>
 	);
 }
 

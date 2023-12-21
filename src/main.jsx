@@ -4,11 +4,11 @@ import App from "./App";
 import "./styles.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Homepage from "./Homepage/Homepage";
-import Store from "./Store/Store";
-import ErrorPage from "./ErrorPage/ErrorPage";
-import ProductPage from "./ProductPage/ProductPage";
-import CartPage from "./CartPage/CartPage";
+import Homepage from "./components/Homepage/Homepage";
+import Store from "./components/Store/Store";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
+import ProductPage from "./components/ProductPage/ProductPage";
+import CartPage from "./components/CartPage/CartPage";
 
 const router = createBrowserRouter([
 	{

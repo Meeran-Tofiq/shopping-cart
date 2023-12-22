@@ -73,7 +73,7 @@ export default function CartPage() {
 							onClick={() => removeItemFromCart(product)}
 							className={styles.trashButton}
 						>
-							<i className="fa-solid fa-trash"></i>
+							<i className="fa-solid fa-trash" data-testid="trash-button"></i>
 						</button>
 					</li>
 				))}

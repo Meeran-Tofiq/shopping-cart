@@ -66,7 +66,7 @@ export default function CartPage() {
 							>
 								-
 							</button>
-							<span>{product.quantity}</span>
+							<span data-testid="product-quantity">{product.quantity}</span>
 							<button onClick={() => increaseQuantityOfItem(product)}>+</button>
 						</div>
 						<button

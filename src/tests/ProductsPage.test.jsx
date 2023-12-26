@@ -31,16 +31,10 @@ vi.mock("react-router-dom", async (importOriginal) => {
 		return { state };
 	}
 
-	// make a method to set the return object of the useLocation hook
-	function setProduct(prod) {
-		state.product = prod;
-	}
-
 	return {
 		...mod,
 		Link,
 		useLocation,
-		setProduct,
 		mockedArray,
 		setMockedArray,
 		useOutletContext: () => {

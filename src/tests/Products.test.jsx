@@ -41,4 +41,16 @@ describe("products component", () => {
 		expect(screen.getAllByRole("heading")[1].textContent).toBe("bar");
 		expect(screen.getAllByRole("heading")[2].textContent).toBe("baz");
 	});
+
+	it("renders loading page when it is still loading", () => {
+		useProductsURL.mockReturnValue({
+			products: products,
+			error: false,
+			loading: true,
+		});
+		render(<Products category={"error"} useProductsURL={useProductsURL} />);
+
+		expect(screen.getAllByRole("listitem").length).toBe(3);
+		expect(screen.queryByRole("heading")).not.toBeInTheDocument();
+	});
 });

@@ -8,7 +8,7 @@ vi.mock("../components/Card/Card", async (importOriginal) => {
 	return {
 		default: ({ loading, id, product }) => {
 			if (loading) {
-				return <li key={id} className={styles.loading}></li>;
+				return <li key={id}></li>;
 			}
 
 			return (

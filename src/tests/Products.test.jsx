@@ -53,4 +53,18 @@ describe("products component", () => {
 		expect(screen.getAllByRole("listitem").length).toBe(3);
 		expect(screen.queryByRole("heading")).not.toBeInTheDocument();
 	});
+
+	it("renders error page when an error occurs", () => {
+		useProductsURL.mockReturnValue({
+			products: products,
+			error: true,
+			loading: false,
+		});
+		render(<Products category={"error"} useProductsURL={useProductsURL} />);
+
+		expect(screen.getByRole("heading").textContent).toBe("Oh no...");
+		expect(
+			screen.getByText("Please try again later...", { exact: false })
+		).toBeInTheDocument();
+	});
 });

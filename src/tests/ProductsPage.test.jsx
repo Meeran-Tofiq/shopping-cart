@@ -85,3 +85,29 @@ describe("product quantity", () => {
 		expect(screen.getByTestId("quantity").textContent).toBe("0");
 	});
 });
+
+describe("adding to cart", () => {
+	it("doesn't add the product to cart when the quantity is 0", async () => {
+		const user = userEvent.setup();
+
+		render(<ProductPage />);
+		const cartBtn = screen.getByRole("button", { name: "Add to Cart" });
+
+		await user.click(cartBtn);
+
+		expect(rrd.setMockedArray).not.toHaveBeenCalled();
+	});
+
+	it("adds the product to cart when the quantity is bigger than 0", async () => {
+		const user = userEvent.setup();
+
+		render(<ProductPage />);
+		const plusBtn = screen.getByRole("button", { name: "+" });
+		const cartBtn = screen.getByRole("button", { name: "Add to Cart" });
+
+		await user.click(plusBtn);
+		await user.click(cartBtn);
+
+		expect(rrd.setMockedArray).toHaveBeenCalled();
+	});
+});

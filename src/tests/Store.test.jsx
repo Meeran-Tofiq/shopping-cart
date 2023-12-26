@@ -20,4 +20,14 @@ vi.mock("react-router-dom", async (importOriginal) => {
 	};
 });
 
-describe("Store omponent", () => {});
+describe("Store component", () => {
+	it("renders with correct category", () => {
+		const index = Math.floor(Math.random() * categories.length);
+		rrd.useParams.mockReturnValue({ category: categories[index] });
+
+		render(<Store />);
+		expect(
+			screen.queryByText(categories[index], { exact: false })
+		).toBeInTheDocument();
+	});
+});

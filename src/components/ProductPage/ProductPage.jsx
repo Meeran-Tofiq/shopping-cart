@@ -44,7 +44,7 @@ export default function ProductPage() {
 
 					<div className={styles.amount}>
 						<button onClick={() => decreaseQuantity()}>-</button>
-						<span>{quantity}</span>
+						<span data-testid="quantity">{quantity}</span>
 						<button onClick={() => increaseQuantity()}>+</button>
 						<Link to=".." relative="path">
 							<button onClick={() => addItemToCart({ ...product, quantity })}>

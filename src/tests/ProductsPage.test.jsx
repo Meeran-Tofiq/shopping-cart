@@ -59,3 +59,29 @@ describe("Product page", () => {
 		expect(screen.getByText("You are here, and so am I.")).toBeInTheDocument();
 	});
 });
+
+describe("product quantity", () => {
+	it("increases quantity by pressing the '+' button", async () => {
+		const user = userEvent.setup();
+
+		render(<ProductPage />);
+		const button = screen.getByRole("button", { name: "+" });
+
+		expect(screen.getByTestId("quantity").textContent).toBe("0");
+		await user.click(button);
+		expect(screen.getByTestId("quantity").textContent).toBe("1");
+	});
+
+	it("decreases quantity by pressing the '-' button", async () => {
+		const user = userEvent.setup();
+
+		render(<ProductPage />);
+		const plusBtn = screen.getByRole("button", { name: "+" });
+		const minusBtn = screen.getByRole("button", { name: "-" });
+
+		await user.click(plusBtn);
+		expect(screen.getByTestId("quantity").textContent).toBe("1");
+		await user.click(minusBtn);
+		expect(screen.getByTestId("quantity").textContent).toBe("0");
+	});
+});

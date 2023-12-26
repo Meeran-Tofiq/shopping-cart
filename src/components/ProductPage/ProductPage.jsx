@@ -20,6 +20,10 @@ export default function ProductPage() {
 	}
 
 	function addItemToCart(product) {
+		if (quantity < 1) {
+			alert("your item must be more than 1 to be added");
+			return;
+		}
 		if (cartItems.find((p) => p.title === product.title)) {
 			setCartItems(
 				cartItems.map((p) => {

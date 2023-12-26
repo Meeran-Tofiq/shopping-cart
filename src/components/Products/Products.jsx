@@ -26,7 +26,7 @@ const useProductsURL = (category) => {
 	return { products, error, loading };
 };
 
-export default function Products({ category }) {
+export default function Products({ category, useProductsURL }) {
 	const { products, error, loading } = useProductsURL(category);
 
 	if (loading) {
@@ -64,3 +64,7 @@ export default function Products({ category }) {
 		</ul>
 	);
 }
+
+Products.defaultProps = {
+	useProductsURL: useProductsURL,
+};
